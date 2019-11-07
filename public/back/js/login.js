@@ -4,6 +4,7 @@ $(function () {
     var btn = $("#btn_submit");
     var form = $("#login_form");
 
+    //对表单内容进行校验
     form.bootstrapValidator({
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
@@ -71,5 +72,15 @@ $(function () {
     $("#form_reset").click(function(){
         form.data('bootstrapValidator').resetForm();
     })
+
+//    滚动条功能的实现
+    $( document ).ajaxStart(function(){
+        NProgress.start();
+    })
+    $( document ).ajaxStop(function(){
+            NProgress.done();
+    })
+
+
 
 })
